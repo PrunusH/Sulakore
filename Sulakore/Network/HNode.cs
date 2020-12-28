@@ -211,13 +211,15 @@ namespace Sulakore.Network
 
         protected async Task<bool> SecureWithSOCKS5ProxyAsync()
         {
-            await SendAsync(new byte[]
-            {
+            if (Username == null) await SendAsync(new byte[] { 0x05, 0x01, 0x00 }).ConfigureAwait(false);
+            else
+                await SendAsync(new byte[]
+                {
                 0x05, // Version 5
                 0x02, // 2 Authentication Methods Present
                 0x00, // No Authentication
                 0x02  // Username + Password
-            }).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             byte[] response = await ReceiveAsync(2).ConfigureAwait(false);
             if (response?.Length != 2 || response[1] == 0xFF) return false;
