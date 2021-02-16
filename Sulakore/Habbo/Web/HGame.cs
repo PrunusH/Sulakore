@@ -95,7 +95,7 @@ namespace Sulakore.Habbo.Web
                     string name = values[0];
                     string hash = values[2];
 
-                    if (hash == "-1") continue;
+                    if (hash == "-1" || hashNames.ContainsKey(hash)) continue;
                     hashNames.Add(hash, name);
                 }
             }
