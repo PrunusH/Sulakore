@@ -44,6 +44,7 @@ namespace Sulakore.Habbo.Messages
         public HMessage FloorPlanEditorRequestBlockedTiles { get; set; }
         public HMessage FloorPlanEditorRequestDoorSettings { get; set; }
         public HMessage FloorPlanEditorSave { get; set; }
+        public HMessage FollowFriend { get; set; }
         public HMessage FootballGateSaveLook { get; set; }
         public HMessage FriendPrivateMessage { get; set; }
         public HMessage FriendRequest { get; set; }
@@ -54,6 +55,7 @@ namespace Sulakore.Habbo.Messages
         public HMessage GameCenterRequestGameStatus { get; set; }
         public HMessage GenerateSecretKey { get; set; }
         public HMessage GetClubData { get; set; }
+        public HMessage GetGuestRoomData { get; set; }
         public HMessage GetHabboGuildBadgesMessage { get; set; }
         public HMessage GetMarketplaceConfig { get; set; }
         public HMessage GetPollData { get; set; }

@@ -184,6 +184,7 @@ namespace Sulakore.Habbo.Messages
         public HMessage LoveLockFurniFriendConfirmed { get; set; }
         public HMessage LoveLockFurniStart { get; set; }
         public HMessage MachineID { get; set; }
+        public HMessage MaintenanceStatus { get; set; }
         public HMessage MarketplaceBuyError { get; set; }
         public HMessage MarketplaceCancelSale { get; set; }
         public HMessage MarketplaceConfig { get; set; }
