@@ -69,6 +69,18 @@ namespace Sulakore.Habbo.Messages
 
         public string GenerateHash()
         {
+            if (Class.Instance.Constructor.Name != null)
+                return Hash = Class.Instance.Constructor.Name;
+            else if (Class.Instance.Traits.Count > 0)
+            {
+                foreach (var trait in Class.Instance.Traits)
+                {
+                    string name = trait.QName.Namespace.Name;
+                    if (name != null && name.Contains(":"))
+                        return Hash = name.Split(":")[1];
+                }
+            }
+
             if (!string.IsNullOrWhiteSpace(Hash))
             {
                 return Hash;
@@ -198,6 +210,12 @@ namespace Sulakore.Habbo.Messages
                                 }
 
                                 case OPCode.GetLocal_0:
+                                {
+                                    propertyName = instance.QName;
+                                    break;
+                                }
+
+                                case OPCode.FindPropStrict:
                                 {
                                     propertyName = instance.QName;
                                     break;

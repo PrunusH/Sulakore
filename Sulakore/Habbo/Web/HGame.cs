@@ -100,7 +100,7 @@ namespace Sulakore.Habbo.Web
                 }
             }
 
-            FindMessagesReferences();
+            //FindMessagesReferences();
             foreach (HMessage message in Out.Concat(In))
             {
                 string hash = message.GenerateHash();
@@ -858,13 +858,12 @@ namespace Sulakore.Habbo.Web
 
         private void LoadMessages()
         {
-            ABCFile abc = ABCFiles.Last();
+            ABCFile abc = ABCFiles[2];
 
             ASClass habboMessagesClass = null;
             foreach (ASClass @class in abc.Classes)
             {
                 if (@class.Traits.Count != 2 || @class.Instance.Traits.Count != 2) continue;
-                if (@class.Traits[0].Type.Name != "Map" || @class.Traits[1].Type.Name != "Map") continue;
                 if (@class.Traits[0].Kind != TraitKind.Constant || @class.Traits[1].Kind != TraitKind.Constant) continue;
 
                 habboMessagesClass = @class;
